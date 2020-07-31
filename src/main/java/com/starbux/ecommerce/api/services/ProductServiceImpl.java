@@ -27,13 +27,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> fetchAllProducts() {
-        log.info(this.getClass().getName() + "Method : fetchAllProducts :" + "fetching all products");
+        log.info(this.getClass().getName() + "Method : fetchAllProducts :" + " fetching all products");
         return productRepository.findAll();
     }
 
     @Override
     public Product fetchProduct(long id) {
-        log.info(this.getClass().getName() + "Method : fetchProduct :" + "fetching product with id:" + id);
+        log.info(this.getClass().getName() + "Method : fetchProduct :" + " fetching product with id: " + id);
         Optional<Product> product = productRepository.findById(id);
         if (!product.isPresent())   // validating if requested product is availbale otherwise throwing exception
             throw new ProductNotFoundException(id);
@@ -42,23 +42,29 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        log.info(this.getClass().getName() + "Method : createProduct :" + "creating new product with name:" + product.getProductName() + " type:" + product.getProductType() + " amount:" + product.getProductType());
+        log.info(this.getClass().getName() + "Method : createProduct :" + " creating new product with name: " + product.getProductName() + " type:" + product.getProductType() + " amount:" + product.getProductType());
         return productRepository.save(product);
     }
 
     @Override
     public void deleteProduct(long id) {
-        log.info(this.getClass().getName() + "Method : deleteProduct :" + "deleting product with id:" + id);
+        log.info(this.getClass().getName() + "Method : deleteProduct : " + " deleting product with id: " + id);
         productRepository.deleteById(id);
     }
 
     @Override
     public void updateProduct(Product product, Long id) {
-        log.info(this.getClass().getName() + "Method : updateProduct :" + "updateProduct product with id:" + id);
+        log.info(this.getClass().getName() + "Method : updateProduct : " + " updateProduct product with id: " + id);
         Optional<Product> productOptional = productRepository.findById(id);
         if (!productOptional.isPresent())  // validating if requested product is availbale otherwise throwing exception
             throw new ProductNotFoundException(id);
         product.setProduct_Id(id);  // setting product id for which update has been requestd
         productRepository.save(product);
+    }
+
+    @Override
+    public String fetchToppingReport() {
+        log.info(this.getClass().getName() + "Method : fetchToppingReport  ");
+        return productRepository.fetchToppingReport();
     }
 }

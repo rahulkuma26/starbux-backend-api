@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * This interface will represent ProductService defines CRUD methods on Product Repository
+ * This interface will represent ProductService defines CRUD methods on Product Repository, and fetch topping report method
  */
 
 @Validated
@@ -23,4 +23,6 @@ public interface ProductService {
     void deleteProduct(long id);
 
     void updateProduct(Product product, Long id);
+
+    String fetchToppingReport();
 }

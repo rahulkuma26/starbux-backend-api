@@ -49,9 +49,9 @@ public class OrderServiceImpl implements OrderService {
          */
 
         if (orderId == 0) {
-            log.info(this.getClass().getName() + "Method : createUpdateOrder" + "creating new order with product id:" + productId);
+            log.info(this.getClass().getName() + " Method : createUpdateOrder" + " creating new order with product id: " + productId);
         } else {
-            log.info(this.getClass().getName() + "Method : createUpdateOrder" + "updating order for order id:" + orderId + " with product id:" + productId);
+            log.info(this.getClass().getName() + " Method : createUpdateOrder " + " updating order for order id: " + orderId + " with product id: " + productId);
             order.setOrder_id(orderId);
             productList = OrderUtill.fetchProductList(orderId, orderRepository); // fetchig product list from already exsiting order
         }
@@ -62,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
                 .sum();
         quantity = productList.size();   //  quantity in order will be equal to total products
         discountAmount = OrderUtill.fetchDiscount(totalAmount, quantity, productList); // fetching discount on order
-        log.info(this.getClass().getName() + "Method : createUpdateOrder" + "totalAmount:" + totalAmount + " quantity:" + quantity + "discountAmount:" + discountAmount);
+        log.info(this.getClass().getName() + "Method : createUpdateOrder " + " totalAmount: " + totalAmount + " quantity: " + quantity + " discountAmount: " + discountAmount);
 
         // setting up all required attributes in order
         order.setUserID(orderRequest.getUser_id());
@@ -79,11 +79,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<UserReport> fetchUserReport() {
+        log.info(this.getClass().getName() + " Method : fetchUserReport" + " fetching user report ");
         return orderRepository.fetchUserReport();
     }
 
-    @Override
-    public void fetchToppingReport() {
-
-    }
 }
