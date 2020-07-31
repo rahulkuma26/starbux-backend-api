@@ -1,17 +1,12 @@
 package com.starbux.ecommerce.api.utills;
 
-import com.starbux.ecommerce.api.models.Order;
-import com.starbux.ecommerce.api.models.OrderStatus;
 import com.starbux.ecommerce.api.models.Product;
-import com.starbux.ecommerce.api.repository.ProductRepository;
 import com.starbux.ecommerce.api.services.OrderService;
 import com.starbux.ecommerce.api.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.time.LocalDate;
 
 @Configuration
 @Slf4j
