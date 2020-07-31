@@ -1,5 +1,6 @@
 package com.starbux.ecommerce.api.controllers;
 
+import com.starbux.ecommerce.api.constants.ProjectConstants;
 import com.starbux.ecommerce.api.models.Product;
 import com.starbux.ecommerce.api.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -53,5 +54,11 @@ public class ProductController {
         log.info(this.getClass().getName() + "Method : updateProduct :" + "updating product with id" + id + " name:" + product.getProductName() + " type:" + product.getProductType() + " amount:" + product.getProductType());
         productService.updateProduct(product, id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/report/topping")     // fetchToppingReport method to fetch topping report
+    public String fetchToppingReport() {
+        log.info(this.getClass().getName() + "Method : fetchToppingReport :" + "fetching topping report");
+        return ProjectConstants.MOST_USED_TOPPING.concat(productService.fetchToppingReport());
     }
 }

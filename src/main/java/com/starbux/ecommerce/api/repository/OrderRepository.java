@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
+    //  findUserReport method to fetch total orders and total amount per user
     @Query(value = ProjectConstants.QUERY_TO_FETCH_USER_REPORT, nativeQuery = true)
-    List<UserReport> fetchUserReport(); //  findUserReport method to fetch total orders and total amount per user
+    List<UserReport> fetchUserReport();
 }

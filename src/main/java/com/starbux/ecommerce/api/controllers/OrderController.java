@@ -33,18 +33,14 @@ public class OrderController {
     @PostMapping("/order")  // create and update method to handle create , update and finalize order request
     public OrderResponseDto createUpdateOrder(@RequestBody OrderRequestDto orderRequest) {
         Order order = orderService.createUpdateOrder(orderRequest);
-        log.info(this.getClass().getName() + "Method : createUpdateOrder :" + "successfully created order with order id:" + order.getOrder_id());
+        log.info(this.getClass().getName() + " Method : createUpdateOrder :" + " successfully created order with order id: " + order.getOrder_id());
         return OrderUtill.conevrtEntitytoDto(order); //converting order object into order response dto
     }
 
     @GetMapping("/report/user")  // fetchUserReport method to get User reports
     public List<UserReport> fetchUserReport() {
-        log.info(this.getClass().getName() + "Method : fetchUserReport");
+        log.info(this.getClass().getName() + " Method : fetchUserReport");
         return orderService.fetchUserReport();
     }
 
-    @GetMapping("/report/topping")  // fetchUserReport method to get User reports
-    public void fetchToppingReport() {
-        log.info(this.getClass().getName() + "Method : fetchToppingReport");
-    }
 }
