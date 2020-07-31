@@ -51,8 +51,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(long order_id, long userID, LocalDate createDateTime, String orderStatus, double totalAmount, int quantity, double discountAmount, double orderNetAmount, List<Product> products) {
-        this.order_id = order_id;
+    public Order(long userID, LocalDate createDateTime, String orderStatus, double totalAmount, int quantity, double discountAmount, double orderNetAmount, List<Product> products) {
         this.userID = userID;
         this.createDateTime = createDateTime;
         this.orderStatus = orderStatus;

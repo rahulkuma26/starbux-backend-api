@@ -1,8 +1,9 @@
 package com.starbux.ecommerce.api.services;
 
 import com.starbux.ecommerce.api.dto.OrderRequestDto;
+import com.starbux.ecommerce.api.dto.UserReport;
 import com.starbux.ecommerce.api.models.Order;
-import com.starbux.ecommerce.api.models.OrderStatus;
+import com.starbux.ecommerce.api.dto.OrderStatus;
 import com.starbux.ecommerce.api.models.Product;
 import com.starbux.ecommerce.api.repository.OrderRepository;
 import com.starbux.ecommerce.api.utills.OrderUtill;
@@ -74,6 +75,11 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderNetAmount(totalAmount - discountAmount);
 
         return orderRepository.save(order);
+    }
+
+    @Override
+    public List<UserReport> fetchUserReport() {
+        return orderRepository.fetchUserReport();
     }
 
 

@@ -1,4 +1,4 @@
-package com.starbux.ecommerce.api.models;
+package com.starbux.ecommerce.api.dto;
 
 /**
  * This enum will represent ProductType that can be DRINK and TOPPING as of now

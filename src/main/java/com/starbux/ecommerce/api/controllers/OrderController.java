@@ -2,14 +2,18 @@ package com.starbux.ecommerce.api.controllers;
 
 import com.starbux.ecommerce.api.dto.OrderRequestDto;
 import com.starbux.ecommerce.api.dto.OrderResponseDto;
+import com.starbux.ecommerce.api.dto.UserReport;
 import com.starbux.ecommerce.api.models.Order;
 import com.starbux.ecommerce.api.services.OrderService;
 import com.starbux.ecommerce.api.utills.OrderUtill;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * This class will represent order controller to handle create and update order post request.
@@ -32,4 +36,11 @@ public class OrderController {
         log.info(this.getClass().getName() + "Method : createUpdateOrder :" + "successfully created order with order id:" + order.getOrder_id());
         return OrderUtill.conevrtEntitytoDto(order); //converting order object into order response dto
     }
+
+    @GetMapping("/report/user")  // fetchUserReport method to get User reports
+    public List<UserReport> fetchUserReport() {
+        log.info(this.getClass().getName() + "Method : fetchUserReport");
+        return orderService.fetchUserReport();
+    }
+
 }
