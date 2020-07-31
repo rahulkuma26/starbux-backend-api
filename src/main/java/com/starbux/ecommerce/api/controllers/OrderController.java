@@ -30,7 +30,7 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @PostMapping("/createUpdateOrder")  // create and update method to handle create , update and finalize order request
+    @PostMapping("/order")  // create and update method to handle create , update and finalize order request
     public OrderResponseDto createUpdateOrder(@RequestBody OrderRequestDto orderRequest) {
         Order order = orderService.createUpdateOrder(orderRequest);
         log.info(this.getClass().getName() + "Method : createUpdateOrder :" + "successfully created order with order id:" + order.getOrder_id());
@@ -43,4 +43,8 @@ public class OrderController {
         return orderService.fetchUserReport();
     }
 
+    @GetMapping("/report/topping")  // fetchUserReport method to get User reports
+    public void fetchToppingReport() {
+        log.info(this.getClass().getName() + "Method : fetchToppingReport");
+    }
 }

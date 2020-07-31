@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "products") // the table in the database that will contain our product data
 @EntityListeners(AuditingEntityListener.class)
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long product_Id;  // Each product will be given an auto-generated unique identifier when stored

@@ -45,7 +45,6 @@ public class Order {
     private double orderNetAmount; // final net Amount of the order
 
     @OneToMany
-    @JoinColumn(name = "order_id")
     private List<Product> products;   // mapping products to order for one to many mapping
 
     public Order() {
