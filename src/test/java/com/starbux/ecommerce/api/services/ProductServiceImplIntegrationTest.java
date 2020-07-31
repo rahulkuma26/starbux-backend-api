@@ -42,7 +42,7 @@ public class ProductServiceImplIntegrationTest {
     }
     @Test
     public void whenFetchProduct_thenProductShouldBeFound() {
-        List<Product> productList = productService.getAllProducts();
+        List<Product> productList = productService.fetchAllProducts();
         assertThat(productList.size()).isGreaterThan(0);
     }
 }

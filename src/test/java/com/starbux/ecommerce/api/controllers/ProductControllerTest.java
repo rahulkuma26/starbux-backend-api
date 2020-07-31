@@ -40,7 +40,7 @@ public class ProductControllerTest {
 
         List<Product> productList = Arrays.asList(product);
 
-        given(productService.getAllProducts()).willReturn(productList);
+        given(productService.fetchAllProducts()).willReturn(productList);
 
         mvc.perform(MockMvcRequestBuilders
                 .get("/products")

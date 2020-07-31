@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
 
         productList.add(product); // adding new product to product list
         totalAmount = productList.stream()         // calculating total amount from all products in order
-                .mapToInt(amount -> amount.getProductAmount())
+                .mapToDouble(amount -> amount.getProductAmount())
                 .sum();
         quantity = productList.size();   //  quantity in order will be equal to total products
         discountAmount = OrderUtill.fetchDiscount(totalAmount, quantity, productList); // fetching discount on order
