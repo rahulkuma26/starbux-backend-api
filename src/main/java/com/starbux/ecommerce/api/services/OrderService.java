@@ -7,5 +7,7 @@ import com.starbux.ecommerce.api.models.Order;
  * This interface will represent OrderService which defines craete , update and finalize order method
  */
 public interface OrderService {
+    Order createOrder(Order order);
+
     Order createUpdateOrder(OrderRequestDto orderRequest);
 }

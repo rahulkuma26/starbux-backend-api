@@ -33,6 +33,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order createOrder(Order order) {
+        log.info(this.getClass().getName() + "Method : createOrder :" + "creating new order");
+        return orderRepository.save(order);
+    }
+
+    @Override
     public Order createUpdateOrder(OrderRequestDto orderRequest) {
         Long orderId = orderRequest.getOrder_id();
         Long productId = orderRequest.getProduct_id();
