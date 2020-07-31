@@ -13,4 +13,6 @@ public interface OrderService {
     Order createUpdateOrder(OrderRequestDto orderRequest);
 
     List<UserReport> fetchUserReport();
+
+    void fetchToppingReport();
 }
