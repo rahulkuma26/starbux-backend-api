@@ -1,13 +1,21 @@
 package com.starbux.ecommerce.api;
 
+import com.starbux.ecommerce.api.controllers.ProductController;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class StarbuxEcommerceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Autowired
+    private ProductController productController;
+
+    @Test
+    void contextLoads() {
+        assertThat(productController).isNotNull();
+    }
 
 }
