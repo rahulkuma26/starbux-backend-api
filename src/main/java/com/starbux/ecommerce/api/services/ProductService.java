@@ -1,6 +1,6 @@
 package com.starbux.ecommerce.api.services;
 
-import com.starbux.ecommerce.api.models.Product;
+import com.starbux.ecommerce.api.entity.Product;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Min;
@@ -22,7 +22,7 @@ public interface ProductService {
 
     void deleteProduct(long id);
 
-    void updateProduct(Product product, Long id);
+    Product updateProduct(Product product, Long id);
 
     String fetchToppingReport();
 }

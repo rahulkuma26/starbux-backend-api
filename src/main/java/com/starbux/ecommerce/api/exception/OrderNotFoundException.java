@@ -9,4 +9,8 @@ public class OrderNotFoundException extends RuntimeException {
     public OrderNotFoundException(Long id) {
         super("The Order with id " + id + " is not present in our dataset ");
     }
+
+    public OrderNotFoundException(String message) {
+        super(message);
+    }
 }

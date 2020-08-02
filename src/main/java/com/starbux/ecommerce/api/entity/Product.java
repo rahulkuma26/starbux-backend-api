@@ -1,4 +1,4 @@
-package com.starbux.ecommerce.api.models;
+package com.starbux.ecommerce.api.entity;
 
 import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

@@ -1,10 +1,9 @@
 package com.starbux.ecommerce.api.services;
 
+import com.starbux.ecommerce.api.entity.Product;
 import com.starbux.ecommerce.api.exception.ProductNotFoundException;
-import com.starbux.ecommerce.api.models.Product;
 import com.starbux.ecommerce.api.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +18,11 @@ import java.util.Optional;
 @Transactional
 public class ProductServiceImpl implements ProductService {
 
-    public ProductServiceImpl() {
-    }
-
-    @Autowired
     private ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Override
     public List<Product> fetchAllProducts() {
@@ -53,13 +52,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void updateProduct(Product product, Long id) {
+    public Product updateProduct(Product product, Long id) {
         log.info(this.getClass().getName() + "Method : updateProduct : " + " updateProduct product with id: " + id);
         Optional<Product> productOptional = productRepository.findById(id);
         if (!productOptional.isPresent())  // validating if requested product is availbale otherwise throwing exception
             throw new ProductNotFoundException(id);
         product.setProduct_Id(id);  // setting product id for which update has been requestd
-        productRepository.save(product);
+        return productRepository.save(product);
     }
 
     @Override
