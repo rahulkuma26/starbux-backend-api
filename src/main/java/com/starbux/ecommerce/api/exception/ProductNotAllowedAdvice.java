@@ -6,17 +6,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-/**
- * This class will represent OrderNotFoundAdvice.
- * when a requested order is not found then we will handle that exception and inform user about it
- */
-
 @ControllerAdvice
-public class OrderNotFoundAdvice {
+public class ProductNotAllowedAdvice {
     @ResponseBody
-    @ExceptionHandler(OrderNotFoundException.class)
+    @ExceptionHandler(ProductNotAllowedException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String OrderNotFoundHandler(OrderNotFoundException exception) {
+    String productNotAllowedHandler(ProductNotAllowedException exception) {
         return exception.getMessage();
     }
 }

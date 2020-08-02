@@ -3,11 +3,12 @@ package com.starbux.ecommerce.api.controllers;
 import com.starbux.ecommerce.api.dto.OrderRequestDto;
 import com.starbux.ecommerce.api.dto.OrderResponseDto;
 import com.starbux.ecommerce.api.dto.UserReport;
-import com.starbux.ecommerce.api.models.Order;
+import com.starbux.ecommerce.api.entity.Order;
 import com.starbux.ecommerce.api.services.OrderService;
 import com.starbux.ecommerce.api.utills.OrderUtill;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,20 +28,23 @@ import java.util.List;
 @RestController
 public class OrderController {
 
-    @Autowired
-    OrderService orderService;
+    private OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @PostMapping("/order")  // create and update method to handle create , update and finalize order request
-    public OrderResponseDto createUpdateOrder(@RequestBody OrderRequestDto orderRequest) {
+    public ResponseEntity<OrderResponseDto> createUpdateOrder(@RequestBody OrderRequestDto orderRequest) {
         Order order = orderService.createUpdateOrder(orderRequest);
         log.info(this.getClass().getName() + " Method : createUpdateOrder :" + " successfully created order with order id: " + order.getOrder_id());
-        return OrderUtill.conevrtEntitytoDto(order); //converting order object into order response dto
+        return new ResponseEntity<OrderResponseDto>(OrderUtill.conevrtEntitytoDto(order), HttpStatus.CREATED);
     }
 
     @GetMapping("/report/user")  // fetchUserReport method to get User reports
-    public List<UserReport> fetchUserReport() {
+    public ResponseEntity<List<UserReport>> fetchUserReport() {
         log.info(this.getClass().getName() + " Method : fetchUserReport");
-        return orderService.fetchUserReport();
+        return new ResponseEntity<List<UserReport>>(orderService.fetchUserReport(), HttpStatus.OK);
     }
 
 }

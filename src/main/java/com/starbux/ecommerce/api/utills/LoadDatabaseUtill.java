@@ -1,6 +1,6 @@
 package com.starbux.ecommerce.api.utills;
 
-import com.starbux.ecommerce.api.models.Product;
+import com.starbux.ecommerce.api.entity.Product;
 import com.starbux.ecommerce.api.services.OrderService;
 import com.starbux.ecommerce.api.services.ProductService;
 import lombok.extern.slf4j.Slf4j;

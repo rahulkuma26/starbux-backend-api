@@ -1,7 +1,7 @@
 package com.starbux.ecommerce.api.repository;
 
 import com.starbux.ecommerce.api.constants.ProjectConstants;
-import com.starbux.ecommerce.api.models.Product;
+import com.starbux.ecommerce.api.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

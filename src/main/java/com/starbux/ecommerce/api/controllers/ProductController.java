@@ -1,15 +1,13 @@
 package com.starbux.ecommerce.api.controllers;
 
 import com.starbux.ecommerce.api.constants.ProjectConstants;
-import com.starbux.ecommerce.api.models.Product;
+import com.starbux.ecommerce.api.entity.Product;
 import com.starbux.ecommerce.api.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 /**
@@ -20,8 +18,12 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-    @Autowired
     private ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
 
     @GetMapping("/products")     // fetchAllProducts method to handle GET request
     public List<Product> fetchAllProducts() {
@@ -36,29 +38,27 @@ public class ProductController {
     }
 
     @DeleteMapping("/product/{id}")  // deleteProduct method to delete product for reuested id
-    public void deleteProduct(@PathVariable long id) {
+    public ResponseEntity<HttpStatus> deleteProduct(@PathVariable long id) {
         log.info(this.getClass().getName() + "Method : deleteProduct :" + "deleting product for id:" + id);
         productService.deleteProduct(id);
+        return new ResponseEntity<HttpStatus>(HttpStatus.ACCEPTED);
     }
 
     @PostMapping("/product")    // createProduct method to create new product
-    public ResponseEntity<Object> createProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         log.info(this.getClass().getName() + "Method : createProduct :" + "creating new product with name:" + product.getProductName() + " type:" + product.getProductType() + " amount:" + product.getProductType());
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(productService.createProduct(product).getProduct_Id()).toUri();
-        return ResponseEntity.created(location).build();
+        return new ResponseEntity<Product>(productService.createProduct(product), HttpStatus.CREATED);
     }
 
     @PutMapping("/product/{id}")   // updateProduct method to update existing product
-    public ResponseEntity<Object> updateProduct(@RequestBody Product product, @PathVariable long id) {
+    public ResponseEntity<Product> updateProduct(@RequestBody Product product, @PathVariable long id) {
         log.info(this.getClass().getName() + "Method : updateProduct :" + "updating product with id" + id + " name:" + product.getProductName() + " type:" + product.getProductType() + " amount:" + product.getProductType());
-        productService.updateProduct(product, id);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<Product>(productService.updateProduct(product, id), HttpStatus.OK);
     }
 
     @GetMapping("/report/topping")     // fetchToppingReport method to fetch topping report
-    public String fetchToppingReport() {
+    public ResponseEntity<String> fetchToppingReport() {
         log.info(this.getClass().getName() + "Method : fetchToppingReport :" + "fetching topping report");
-        return ProjectConstants.MOST_USED_TOPPING.concat(productService.fetchToppingReport());
+        return new ResponseEntity<String>(ProjectConstants.MOST_USED_TOPPING.concat(productService.fetchToppingReport()), HttpStatus.OK);
     }
 }

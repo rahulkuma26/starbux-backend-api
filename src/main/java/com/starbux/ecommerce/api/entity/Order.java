@@ -1,4 +1,4 @@
-package com.starbux.ecommerce.api.models;
+package com.starbux.ecommerce.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

@@ -2,8 +2,8 @@ package com.starbux.ecommerce.api.utills;
 
 import com.starbux.ecommerce.api.dto.OrderResponseDto;
 import com.starbux.ecommerce.api.exception.OrderNotFoundException;
-import com.starbux.ecommerce.api.models.Order;
-import com.starbux.ecommerce.api.models.Product;
+import com.starbux.ecommerce.api.entity.Order;
+import com.starbux.ecommerce.api.entity.Product;
 import com.starbux.ecommerce.api.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 
