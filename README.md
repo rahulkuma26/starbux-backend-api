@@ -5,13 +5,28 @@ This repository contains backend api for our online coffee place eCommerce start
  
  2.This solution also provides api to admin to create/update/delete drinks/toppings and verify different reports related to User and Products.
  
-# Getting Started
-
- Prerequisites
-
+# Prerequisites
 Kindly ensure you have the following installed on your machine:
 
- Java 8
- Maven 3.5
- Docker
+ 1. Java 8
+
+ 2.Maven 3.5
+ 
+ 3.Docker
+ 
+# Running the Application
+
+1. Clone the repository
+
+   git clone https://github.com/rahulkuma26/starbux-backend-api.git
+  
+2. Check into the cloned repository
+
+   cd starbux-backend-api/
+   
+3. Run the application by executing setup.sh
+
+   ./setup.sh
+ 
+ 
  
