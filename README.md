@@ -10,9 +10,9 @@ Kindly ensure you have the following installed on your machine:
 
        1. Java 8
 
-       2.Maven 3.5
+       2. Maven 3.5
  
-       3.Docker
+       3. Docker
  
 # Running the Application
 
@@ -30,6 +30,23 @@ Kindly ensure you have the following installed on your machine:
    
    Please allow for 10-15 mintues till your application is up and running as setup.sh contains two commands :
      1. Docker build command to build docker image from Dockerfile which will install Maven,copy the source code,build the application and extract the final jar.
-     2. Run the docker image on port 8080
+     2. Run Integration and Unit test cases
+     3. Run the docker image on port 8080
+     
+4. After complete setup your Application is running and you can access it using:
+
+       http://localhost:8080/
+       
+5.  API Documentaion can be found here:
+
+     http://localhost:8080/
+     
+6.  If you don't have docker setup in your local machine then please execute these Steps and skip step 3
+
+          mvn compile
+     
+          mvn package
+       
+          java -jar target/api-0.0.1-SNAPSHOT.jar
  
  
