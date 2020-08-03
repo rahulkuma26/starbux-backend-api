@@ -28,7 +28,7 @@ Kindly ensure you have the following installed on your machine:
 
        ./setup.sh
    
-   Please allow for 5-10 mintues till your application is up and running as setup.sh contains two commands :
+   Please allow for 10-15 mintues till your application is up and running as setup.sh contains two commands :
      1. Docker build command to build docker image from Dockerfile which will install Maven,copy the source code,build the application and extract the final jar.
      2. Run the docker image on port 8080
  
