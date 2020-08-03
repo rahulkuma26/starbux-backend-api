@@ -38,7 +38,7 @@ Kindly ensure you have the following installed on your machine:
        
 5.  API Documentaion can be found here:
 
-     http://localhost:8080/
+      https://app.swaggerhub.com/apis/rahul.kumar26/Starbux-api/0.1
      
 6.  If you don't have docker setup in your local machine then please execute these Steps and skip step 3
 
