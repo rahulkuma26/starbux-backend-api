@@ -54,21 +54,21 @@ Kindly ensure you have the following installed on your machine:
 
 This application provides 8 end points. Please refer to API Documentation for complete details.
  1.  To fetch all products details:
-            /products
+                 /products
  2.  To fetch one particular product details:
-            /product/{id}
- 3.  To delete one existing product
-            /product/{id}
- 4.  To Update one existing product
-            /product/{id}
- 5.  To create one new product
-           /product
+                 /product/{id}
+ 3.  To delete one existing product:
+                 /product/{id}
+ 4.  To Update one existing product:
+                 /product/{id}
+ 5.  To create one new product:
+                 /product
           
- 6. To Create new order and Update exsiting order 
-            /order
+ 6. To Create new order and Update exsiting order:
+                  /order
           
- 7. To fetch user related reports
-            /report/user
- 8. To fetch topping related reports
-           /report/topping
+ 7. To fetch user related reports:
+                  /report/user
+ 8. To fetch topping related reports:
+                 /report/topping
  
