@@ -71,4 +71,14 @@ This application provides 8 end points. Please refer to API Documentation for co
                   /report/user
  8. To fetch topping related reports:
                  /report/topping
+                 
+# AWS Deployment
+ I have deployed this application on Amazon AWS Fargate using following steps:
+  
+  1. Push the docker image which we have created earlier to AWS ECR using aws cli commands to tag and push docker images.
+  2. Define a task in AWS ECS for defining a container with Docker image URI provided by AWS ECR.
+  3. Configure your cluster and Run the task on the cluster.
+  4. Your application is running and you can access it on External load balancer IP provided by your service.
+  5. You can monitor your application using AWS CloudWatch as AWS Fargate is integrated with AWS CloudWatch.
+
  
