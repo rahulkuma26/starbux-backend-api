@@ -5,3 +5,17 @@ This repository contains backend api for our online coffee place eCommerce start
  
  2.This solution also provides api to admin to create/update/delete drinks/toppings and verify different reports related to User and Products.
  
+# Getting Started
+
+ #Prerequisites
+
+Kindly ensure you have the following installed on your machine:
+
+ Java 8
+ Maven 3.5
+ Git
+ An IDE or Editor of your choice
+ Java 8
+ Maven 3.5
+ Docker
+ 
