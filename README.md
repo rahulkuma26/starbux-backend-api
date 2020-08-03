@@ -8,7 +8,7 @@ This repository contains backend api for our online coffee place eCommerce start
 # Prerequisites
 Kindly ensure you have the following installed on your machine:
 
- 1. Java 8
+       1. Java 8
 
  2.Maven 3.5
  
