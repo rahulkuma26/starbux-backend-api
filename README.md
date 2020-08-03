@@ -10,4 +10,4 @@ This repository contains backend api for our online coffee place eCommerce start
  1.Develop an API that will be used to order drinks with any of the topping combinations,current amount,original amount,discount and total number of products
    should be communicated back to the caller of the API.
 
- 2. Admin should be able to Create/Update/Delete Products and see Reports
+2. Admin should be able to Create/Update/Delete Products and see Reports
