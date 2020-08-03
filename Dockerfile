@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine as build
-
+# Install MAVEN
 RUN apk add --update ca-certificates && rm -rf /var/cache/apk/* && \
   find /usr/share/ca-certificates/mozilla/ -name "*.crt" -exec keytool -import -trustcacerts \
   -keystore /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/cacerts -storepass changeit -noprompt \
@@ -16,8 +16,7 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
 WORKDIR /workspace/app
-
-
+# Copy the source code Build the application and Extract the final jar
 COPY pom.xml .
 COPY src src
 RUN mvn install
